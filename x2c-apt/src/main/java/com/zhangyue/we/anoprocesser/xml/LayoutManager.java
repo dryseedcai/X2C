@@ -206,6 +206,7 @@ public class LayoutManager {
         try {
             JavaFileObject fileObject = mFiler.createSourceFile("bb");
             String path = fileObject.toUri().toString();
+            // file:/E:/other/_PROJECT_LAYOUT/X2C/app/build/generated/source/apt/debug/bb.java
             Log.w("===> path : " + path);
             String preFix = "file:/";
             if (path.startsWith(preFix)) {
@@ -215,6 +216,7 @@ public class LayoutManager {
             while (!file.getName().equals("build")) {
                 file = file.getParentFile();
             }
+            // E:\other\_PROJECT_LAYOUT\X2C\app
             Log.w("===> getRootFile : " + file.getParentFile().getCanonicalPath());
             return file.getParentFile();
         } catch (Exception e) {
@@ -296,12 +298,13 @@ public class LayoutManager {
         try {
             JavaFileObject filerSourceFile = mFiler
                     .createSourceFile("test");
-            basePath = filerSourceFile.toUri().getPath()
+            basePath = filerSourceFile.toUri().getPath() // /E:/other/_PROJECT_LAYOUT/X2C/app/build/generated/source/apt/debug/test.java
                     .replace("apt", "r")
-                    .replace("test.java", "");
+                    .replace("test.java", ""); // /E:/other/_PROJECT_LAYOUT/X2C/app/build/generated/source/r/debug/
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // E:\other\_PROJECT_LAYOUT\X2C\app\build\generated\source\r\debug\com\zhangyue\we\x2c\demo\R.java
         return new File(basePath, mPackageName.replace(".", sep) + sep + "R.java");
     }
 

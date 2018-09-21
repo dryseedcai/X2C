@@ -19,7 +19,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -30,7 +32,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     implementation project(':app-module')
-
 
     //annotationProcessor 'com.zhangyue.we:x2c-apt:1.1.1'
     annotationProcessor project(':x2c-apt')

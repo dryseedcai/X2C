@@ -48,7 +48,7 @@ public class X2C {
         }
         View view = getView(context, layoutId);
         if (view != null) {
-            if (parent != null) {
+            if (parent != null && attach) {
                 parent.addView(view);
             }
             return view;
@@ -62,6 +62,7 @@ public class X2C {
         if (creator == null) {
             try {
                 int group = generateGroupId(layoutId);
+                //com.zhangyue.we.x2c.demo:layout/fragmetn_layout
                 String layoutName = context.getResources().getResourceName(layoutId);
                 layoutName = layoutName.substring(layoutName.lastIndexOf("/") + 1);
                 String clzName = "com.zhangyue.we.x2c.X2C" + group + "_" + layoutName;

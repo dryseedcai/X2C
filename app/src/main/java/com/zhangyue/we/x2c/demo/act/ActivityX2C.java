@@ -12,7 +12,7 @@ import com.zhangyue.we.x2c.demo.R;
  * @author:chengwei 2018/8/24
  * @description
  */
-@Xml(layouts = "activity_main_inter")
+@Xml(layouts = {"stub_layout", "activity_main_inter"})
 public class ActivityX2C extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
