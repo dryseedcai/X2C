@@ -30,12 +30,14 @@ public class XmlProcessor extends AbstractProcessor {
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
         super.init(processingEnvironment);
         Log.init(processingEnvironment.getMessager());
+        Log.w("===> init");
         mLayoutMgr = LayoutManager.instance();
         mLayoutMgr.setFiler(processingEnvironment.getFiler());
     }
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
+        Log.w("===> process");
         Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(Xml.class);
         TreeSet<String> layouts = new TreeSet<>();
         for (Element element : elements) {

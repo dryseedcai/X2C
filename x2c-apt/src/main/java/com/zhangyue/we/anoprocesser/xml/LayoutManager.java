@@ -80,6 +80,7 @@ public class LayoutManager {
     }
 
     public void setFiler(Filer filer) {
+        Log.w("===> setFiler");
         this.mLayouts.clear();
         this.mFiler = filer;
         this.mRootFile = getRootFile();
@@ -205,6 +206,7 @@ public class LayoutManager {
         try {
             JavaFileObject fileObject = mFiler.createSourceFile("bb");
             String path = fileObject.toUri().toString();
+            Log.w("===> path : " + path);
             String preFix = "file:/";
             if (path.startsWith(preFix)) {
                 path = path.substring(preFix.length() - 1);
@@ -213,6 +215,7 @@ public class LayoutManager {
             while (!file.getName().equals("build")) {
                 file = file.getParentFile();
             }
+            Log.w("===> getRootFile : " + file.getParentFile().getCanonicalPath());
             return file.getParentFile();
         } catch (Exception e) {
             e.printStackTrace();

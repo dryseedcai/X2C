@@ -8,3 +8,6 @@
 /build
 /captures
 .externalNativeBuild
+/apt/build
+/lib/build
+/.idea
